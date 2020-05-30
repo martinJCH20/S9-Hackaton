@@ -9,6 +9,16 @@ const styles = StyleSheet.create({
     containerSafeArea: {
         flex: 1,
         backgroundColor: '#F9F9F9'
+    },
+    containerTitle: {
+        width: '100%',
+        marginBottom: '10%',
+        marginTop: '10%',
+        alignItems:'center'
+    },
+    title: {
+        fontSize: 30,
+        fontFamily: 'Comic Sans'
     }
 })
 export default class Cart extends Component {
@@ -16,9 +26,11 @@ export default class Cart extends Component {
         return(
             <SafeAreaView  style={styles.containerSafeArea}>
             <View style={styles.container}>
-                <Text>Cart</Text>
+                <View style={styles.containerTitle}>
+                    <Text style={styles.title}>My Shopping Cart</Text>
+                </View>
             </View>
-                <MenuFooter navigation={this.props.navigation}/>
+                {/* <MenuFooter navigation={this.props.navigation}/> */}
             </SafeAreaView>
         )
     }
