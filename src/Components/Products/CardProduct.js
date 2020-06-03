@@ -65,9 +65,9 @@ export default class CardProduct extends Component {
         }
     }
 
-    onPressDetail = async(route, nameProduct, priceProduct, imgFondo) => {
+    onPressDetail = async(route, nameProduct, priceProduct, imgFondo, imageProduct) => {
         if(route === 'Details'){
-            this.props.navigation.navigate(route, {nombre: nameProduct, precio: priceProduct, fondo: imgFondo })
+            this.props.navigation.navigate(route, {nombre: nameProduct, precio: priceProduct, fondo: imgFondo, imgProduct: imageProduct })
         }
     }
 
@@ -92,7 +92,7 @@ export default class CardProduct extends Component {
                     <Text style={styles.productName}>
                     {productName}
                     </Text>
-                    <TouchableOpacity onPress={() => this.onPressDetail('Details', productName, productPrice, imgFondo)} >
+                    <TouchableOpacity onPress={() => this.onPressDetail('Details', productName, productPrice, imgFondo, imageProduct )} >
                         <Text style={styles.productPrice}>
                         {productPrice}
                         </Text>
