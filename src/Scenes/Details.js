@@ -39,14 +39,14 @@ export default class Details extends Component {
             nombre:''
         }
     }
-    onPressCart = async(route) => {
+    onPressCart = async(route, nameProduct, priceProduct, imageProduct) => {
         if(route === 'Cart'){
-            this.props.navigation.navigate(route)
+            this.props.navigation.navigate(route, {nombre: nameProduct, precio: priceProduct, imgProduct: imageProduct })
         }
     }
 
     render(){
-        const {fondo,nombre ,precio }= this.props.route.params;
+        const {fondo, nombre, precio, imgProduct }= this.props.route.params;
         return(
             <ImageBackground source={fondo} style={styles.containerSlider}>
             <SafeAreaView  style={styles.containerSafeArea}>
@@ -61,7 +61,7 @@ export default class Details extends Component {
                             <Text style={{color:'black'}}>Price: </Text>
                             <Text style={{color:'black', fontWeight:'bold'}}>{precio}</Text>
                         </View>
-                        <TouchableOpacity onPress={() => this.onPressCart('Cart')}> 
+                        <TouchableOpacity onPress={() => this.onPressCart('Cart',  nombre, precio, imgProduct)}> 
                         <View style={styles.pluss}><Text style={{fontWeight:'bold', color:'white', fontSize:20}}>+</Text></View>
                         </TouchableOpacity>
                     </View>
